@@ -1,5 +1,13 @@
 class User < ApplicationRecord
 
+    
+    after_create do 
+        shelves=["Have read", "Currently reading", "Want to read"]
+        shelves.each do |shelf|
+            Bookshelf.create(name: shelf, user_id: self.id)
+        end
+    end
+
     validates :email, :password_digest, :session_token, 
         presence: true
     
@@ -7,14 +15,16 @@ class User < ApplicationRecord
         uniqueness: true
 
     validates :password, 
-        length {minimum: 6, allow_nil: true}
+        length: {minimum: 6, allow_nil: true}
 
     attr_reader :password
-
+    
 
     after_initialize :ensure_session_token
 
-    #has_many :reviews
+    #has_many :reviews, dependent_destroy: true
+    has_many :bookshelves, dependent: :destroy
+    
 
     def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

@@ -5,15 +5,14 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Session token:</strong>
-  <%= @user.session_token %>
-</p>
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<h1> Bookshelves </h1>
+
+  <% @user.bookshelves.each do |shelf|%>
+    <p>
+      <%= link_to shelf.name, user_bookshelf_path(@user.id, shelf.id)%>
+    </p>
+  <%end%>
+

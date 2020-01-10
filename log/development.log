@@ -10,3 +10,1657 @@ Migrating to CreateUsers (20200104215040)
   [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users"  ("email")[0m
   [1m[35m (2.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(927829647523035705)[0m
+Started GET "/" for ::1 at 2020-01-06 18:33:32 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/0ab57d8169ceeeb0/variables" for ::1 at 2020-01-06 18:33:33 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(927829647523035705)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200104215040)
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (37.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (26.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(927829647523035705)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(927829647523035705)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200104215040)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (24.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  [1m[36mprimary::SchemaMigration Create (10.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200104215040"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-01-06 23:39:33.966233"], ["updated_at", "2020-01-06 23:39:33.966233"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(927829647523035705)[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-01-06 18:41:47 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.9ms | Allocations: 486)
+Completed 200 OK in 38ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 2766)
+
+
+Started GET "/users" for ::1 at 2020-01-06 18:41:56 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1423)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting '}'
+        length {minimum: 6, allow_nil: true}
+                       ^:
+  app/models/user.rb:10:in `'
+  app/controllers/users_controller.rb:7:in `index'
+
+Started POST "/__better_errors/6b9f606de7f231fa/variables" for ::1 at 2020-01-06 18:41:56 -0500
+Started GET "/user/new" for ::1 at 2020-01-06 18:42:00 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/user/new"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2020-01-06 18:42:09 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 5917)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting '}'
+        length {minimum: 6, allow_nil: true}
+                       ^:
+  app/models/user.rb:10:in `'
+  app/controllers/users_controller.rb:17:in `new'
+
+Started POST "/__better_errors/a3ac426365267682/variables" for ::1 at 2020-01-06 18:42:09 -0500
+Started POST "/__better_errors/a3ac426365267682/variables" for ::1 at 2020-01-06 18:42:16 -0500
+Started GET "/rails/info/routes" for ::1 at 2020-01-06 18:44:50 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (Duration: 21.1ms | Allocations: 4091)
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 2.4ms | Allocations: 713)
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 33.6ms | Allocations: 7381)
+Completed 200 OK in 42ms (Views: 37.5ms | ActiveRecord: 0.0ms | Allocations: 8700)
+
+
+Started GET "/users" for ::1 at 2020-01-06 18:46:19 -0500
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms | Allocations: 5918)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting '}'
+        length {minimum: 6, allow_nil: true}
+                       ^:
+  app/models/user.rb:10:in `'
+  app/controllers/users_controller.rb:7:in `index'
+
+Started POST "/__better_errors/dc9334016d5a4c87/variables" for ::1 at 2020-01-06 18:46:19 -0500
+Started GET "/users" for ::1 at 2020-01-06 18:46:51 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 1471)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/m/Desktop/CodeJawns/Rails/GoodReads/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.5
+Time: 4009ms
+Built at: 01/06/2020 6:46:59 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 7980ms (Views: 7967.3ms | ActiveRecord: 8.7ms | Allocations: 37156)
+
+
+Started GET "/users/new" for ::1 at 2020-01-06 18:47:06 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rZEMEqcPwZ3MAqgk4afVjg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:56:in `generate_unique_session_token'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 25.0ms | Allocations: 5260)
+  Rendered users/new.html.erb within layouts/application (Duration: 28.4ms | Allocations: 5627)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 41.5ms | ActiveRecord: 8.7ms | Allocations: 16914)
+
+
+Started GET "/users/new" for ::1 at 2020-01-06 18:48:08 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8jewb8eIh0342-P9MxqLcg"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:56:in `generate_unique_session_token'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 20.1ms | Allocations: 6892)
+  Rendered users/new.html.erb within layouts/application (Duration: 22.7ms | Allocations: 7252)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 38.4ms | ActiveRecord: 0.5ms | Allocations: 14509)
+
+
+Started GET "/users/new" for ::1 at 2020-01-06 18:59:03 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5ZfR06A6VzM42yGYWWnMdA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:56:in `generate_unique_session_token'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 8.5ms | Allocations: 1292)
+  Rendered users/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 1656)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 49.7ms | ActiveRecord: 2.1ms | Allocations: 9023)
+
+
+Started POST "/users" for ::1 at 2020-01-06 18:59:10 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"DFD4rfGbz8uXemJIaruOhjvyadpUtgI8BEgQJpulmvDlbrtKanYDPTQb/8tHd7b4ZV8pt5dpvfUtUMnIJm3Dhg==", "user"=>{"email"=>"gregnazarian1@gmail.com", "password"=>"[FILTERED]", "session_token"=>"5ZfR06A6VzM42yGYWWnMdA"}, "commit"=>"Create User"}
+[31mUnpermitted parameter: :password[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gregnazarian1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5ZfR06A6VzM42yGYWWnMdA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.1ms | Allocations: 1009)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1108)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 24.5ms | ActiveRecord: 2.1ms | Allocations: 11697)
+
+
+Started POST "/users" for ::1 at 2020-01-06 18:59:14 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"H8WHXlKZyZgMKMqllMSgWny7Yp3jY/LP9Y+5ptmHLjT2+8S5yXQFbq9JVya5CJgkIhYi8CC8TQbcl2BIZE93Qg==", "user"=>{"email"=>"gregnazarian1@gmail.com", "password"=>"[FILTERED]", "session_token"=>"5ZfR06A6VzM42yGYWWnMdA"}, "commit"=>"Create User"}
+[31mUnpermitted parameter: :password[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (5.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gregnazarian1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "5ZfR06A6VzM42yGYWWnMdA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 6.7ms | Allocations: 990)
+  Rendered users/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1088)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 26.7ms | ActiveRecord: 8.1ms | Allocations: 11476)
+
+
+Started GET "/users" for ::1 at 2020-01-06 19:01:10 -0500
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 1749)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 92ms (Views: 64.5ms | ActiveRecord: 6.4ms | Allocations: 13322)
+
+
+Started GET "/users/new" for ::1 at 2020-01-06 19:01:13 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "cWdaEc9iwlziqCIuMQXXTQ"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:56:in `generate_unique_session_token'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 16.6ms | Allocations: 3487)
+  Rendered users/new.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3857)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 32.1ms | ActiveRecord: 23.5ms | Allocations: 15140)
+
+
+Started POST "/users" for ::1 at 2020-01-06 19:01:20 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"J6vx49WLBQaT4IUraih7inki1v/poY45ltlzf1S/uo4DqeOYyK5SQzBYDRgEGgSRJNJdwpMO7NTTaFB1MpUtQg==", "user"=>{"email"=>"gregnazarian1@gmail.com", "password"=>"[FILTERED]", "session_token"=>"cWdaEc9iwlziqCIuMQXXTQ"}, "commit"=>"Create User"}
+[31mUnpermitted parameter: :session_token[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "MLcpjW0DLTbIQQsRTiO6nw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:56:in `generate_unique_session_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "gregnazarian1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "MLcpjW0DLTbIQQsRTiO6nw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "gregnazarian1@gmail.com"], ["password_digest", "$2a$12$4EvX3/.6Ue0wpcCexY0k/OEm4UfdqkUylJ9YRGRPwQ4AwN9.zKtRK"], ["session_token", "MLcpjW0DLTbIQQsRTiO6nw"], ["created_at", "2020-01-07 00:01:20.825651"], ["updated_at", "2020-01-07 00:01:20.825651"]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 383ms (ActiveRecord: 4.0ms | Allocations: 5618)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:01:20 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 312)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 15.2ms | ActiveRecord: 1.9ms | Allocations: 6910)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:01:49 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 256)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 23.5ms | ActiveRecord: 0.6ms | Allocations: 7479)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(927829647523035705)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBookshelves (20200107001932)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (29.1ms)[0m  [1m[35mCREATE TABLE "bookshelves" ("id" bigserial primary key, "name" character varying NOT NULL, "user_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_76f3e9be4e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_bookshelves_on_user_id" ON "bookshelves"  ("user_id")[0m
+  [1m[35m (6.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(927829647523035705)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(927829647523035705)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBookshelves (20200107001932)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (28.5ms)[0m  [1m[35mCREATE TABLE "bookshelves" ("id" bigserial primary key, "name" character varying NOT NULL, "user_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_76f3e9be4e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_bookshelves_on_user_id" ON "bookshelves"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200107001932"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(927829647523035705)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBookshelf Create (20.2ms)[0m  [1m[32mINSERT INTO "bookshelves" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Have read"], ["user_id", 1], ["created_at", "2020-01-07 00:30:54.382483"], ["updated_at", "2020-01-07 00:30:54.382483"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBookshelf Load (0.6ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_6EKIVw6Z6yTc1JHx-zv0A"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "_6EKIVw6Z6yTc1JHx-zv0A"], ["LIMIT", 1]]
+  [1m[35m (3.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "h2HKd4vr6r5BLpx0AXvqyg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "fake_email"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "h2HKd4vr6r5BLpx0AXvqyg"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "fake_email"], ["password_digest", "$2a$12$/E4z6yqzYLpN9pHoSjd7gOwo6eNgXxWe.2wecY6Y/BwIe/cMJCxd6"], ["session_token", "h2HKd4vr6r5BLpx0AXvqyg"], ["created_at", "2020-01-07 00:37:13.320001"], ["updated_at", "2020-01-07 00:37:13.320001"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBookshelf Create (1.5ms)[0m  [1m[32mINSERT INTO "bookshelves" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Have read"], ["user_id", 2], ["created_at", "2020-01-07 00:37:13.383871"], ["updated_at", "2020-01-07 00:37:13.383871"]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBookshelf Create (0.6ms)[0m  [1m[32mINSERT INTO "bookshelves" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Currently reading"], ["user_id", 2], ["created_at", "2020-01-07 00:37:13.389880"], ["updated_at", "2020-01-07 00:37:13.389880"]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBookshelf Create (0.8ms)[0m  [1m[32mINSERT INTO "bookshelves" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Want to read"], ["user_id", 2], ["created_at", "2020-01-07 00:37:13.394269"], ["updated_at", "2020-01-07 00:37:13.394269"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBookshelf Load (0.7ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "bookshelves"[0m
+Started GET "/users/1" for ::1 at 2020-01-06 19:39:22 -0500
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 574)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 206ms (Views: 153.4ms | ActiveRecord: 15.4ms | Allocations: 37122)
+
+
+Started GET "/users" for ::1 at 2020-01-06 19:39:24 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 1329)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 32.6ms | ActiveRecord: 3.2ms | Allocations: 7284)
+
+
+Started GET "/users/2" for ::1 at 2020-01-06 19:39:28 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 95)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 14.6ms | ActiveRecord: 1.2ms | Allocations: 6468)
+
+
+Started GET "/users" for ::1 at 2020-01-06 19:44:02 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 33.3ms | Allocations: 5108)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 52.2ms | ActiveRecord: 17.0ms | Allocations: 12530)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:44:05 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 94)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 23.9ms | ActiveRecord: 2.7ms | Allocations: 6572)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:26 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (1.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 62.3ms | Allocations: 19139)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 94ms (Views: 78.1ms | ActiveRecord: 9.4ms | Allocations: 26363)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:30 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (3.7ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 10.1ms | Allocations: 913)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 24.3ms | ActiveRecord: 5.2ms | Allocations: 7271)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:31 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (2.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 23.5ms | ActiveRecord: 5.9ms | Allocations: 7264)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:32 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.7ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 902)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 19.0ms | ActiveRecord: 8.7ms | Allocations: 7260)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:34 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (1.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 903)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 21.8ms | ActiveRecord: 4.6ms | Allocations: 7263)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:34 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 20.8ms | ActiveRecord: 4.2ms | Allocations: 7256)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:36 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 19.4ms | ActiveRecord: 0.8ms | Allocations: 7260)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:36 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (12.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 18.2ms | ActiveRecord: 12.4ms | Allocations: 7269)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:39 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.5ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 18.4ms | ActiveRecord: 9.2ms | Allocations: 7260)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:40 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (2.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 27.9ms | ActiveRecord: 6.3ms | Allocations: 7258)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:40 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 18.0ms | ActiveRecord: 2.1ms | Allocations: 7259)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:40 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (3.1ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 10.6ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 24.4ms | ActiveRecord: 6.4ms | Allocations: 7262)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:41 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (1.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 17.0ms | ActiveRecord: 5.8ms | Allocations: 7265)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:48:43 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.9ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 17.5ms | ActiveRecord: 1.7ms | Allocations: 7259)
+
+
+Started GET "/users/1" for ::1 at 2020-01-06 19:49:07 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (1.2ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1144)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 24.7ms | ActiveRecord: 1.7ms | Allocations: 8444)
+
+
+Started GET "/bookshelves/1" for ::1 at 2020-01-06 19:49:10 -0500
+Processing by BookshelvesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBookshelf Load (0.5ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:67:in `set_bookshelf'
+  Rendering bookshelves/show.html.erb within layouts/application
+  Rendered bookshelves/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 261)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 19.3ms | ActiveRecord: 0.5ms | Allocations: 7319)
+
+
+Started GET "/users" for ::1 at 2020-01-06 19:49:22 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1243)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 0.5ms | Allocations: 7188)
+
+
+Started GET "/users/2" for ::1 at 2020-01-06 19:49:24 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (12.5ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 18.5ms | Allocations: 957)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 22.9ms | ActiveRecord: 12.8ms | Allocations: 7312)
+
+
+Started GET "/users/2" for ::1 at 2020-01-06 19:50:33 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (3.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 11.8ms | Allocations: 1191)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 33.5ms | ActiveRecord: 3.7ms | Allocations: 8494)
+
+
+Started GET "/users/2" for ::1 at 2020-01-06 19:50:48 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1190)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 24.3ms | ActiveRecord: 0.7ms | Allocations: 8488)
+
+
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 19:51:38 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/bookshelves"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/2/bookshelves/1" for ::1 at 2020-01-06 19:51:48 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/bookshelves/1"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/2/bookshelf/1" for ::1 at 2020-01-06 19:51:59 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/bookshelf/1"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 19:52:20 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users/2/bookshelves/new"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/bookshelves/new" for ::1 at 2020-01-06 19:52:45 -0500
+Processing by BookshelvesController#new as HTML
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 13.4ms | Allocations: 2635)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 16.2ms | Allocations: 3000)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 46.3ms | ActiveRecord: 8.7ms | Allocations: 13583)
+
+
+Started POST "/bookshelves" for ::1 at 2020-01-06 19:52:54 -0500
+Processing by BookshelvesController#create as HTML
+  Parameters: {"authenticity_token"=>"rYo5qHQ7mnIeOzSmq2S6RuKiD5qasuEerh229ZOV2vtEtHpP79ZWhL1aqSWGqII4vA9P91ltXteHBW8bLl2DjQ==", "bookshelf"=>{"name"=>"history"}, "commit"=>"Create Bookshelf"}
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 2.2ms | Allocations: 872)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 970)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 11354)
+
+
+Started GET "/bookshelves" for ::1 at 2020-01-06 19:55:31 -0500
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/bookshelves"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-01-06 19:56:02 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 37.1ms | Allocations: 5815)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 91ms (Views: 69.0ms | ActiveRecord: 12.7ms | Allocations: 17589)
+
+
+Started GET "/users/1/bookshelves" for ::1 at 2020-01-06 19:56:06 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (2.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves"[0m
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 332.2ms | Allocations: 81329)
+Completed 500 Internal Server Error in 345ms (ActiveRecord: 10.7ms | Allocations: 83753)
+
+
+
+NoMethodError - undefined method `bookshelf_path' for #<#<Class:0x00007fe9c5aefd88>:0x00007fe9c5aedda8>:
+  app/views/bookshelves/index.html.erb:17
+  app/views/bookshelves/index.html.erb:14
+
+Started POST "/__better_errors/bf726c47356e1571/variables" for ::1 at 2020-01-06 19:56:07 -0500
+Started GET "/users/1/bookshelf" for ::1 at 2020-01-06 19:56:16 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/users/1/bookshelf"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/__better_errors/bf726c47356e1571/variables" for ::1 at 2020-01-06 19:56:19 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 19:56:23 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (1.1ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves"[0m
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 471.7ms | Allocations: 109422)
+Completed 500 Internal Server Error in 474ms (ActiveRecord: 1.1ms | Allocations: 109913)
+
+
+
+NoMethodError - undefined method `bookshelf_path' for #<#<Class:0x00007fe9c5aefd88>:0x00007fe9c996aa40>:
+  app/views/bookshelves/index.html.erb:17
+  app/views/bookshelves/index.html.erb:14
+
+Started POST "/__better_errors/b7b662f0bf0ae74d/variables" for ::1 at 2020-01-06 19:56:24 -0500
+Started POST "/__better_errors/bf726c47356e1571/variables" for ::1 at 2020-01-06 19:57:27 -0500
+Started GET "/bookshelves" for ::1 at 2020-01-06 19:58:28 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/bookshelves"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/bookshelves" for ::1 at 2020-01-06 19:58:29 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/bookshelves"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/__better_errors/bf726c47356e1571/variables" for ::1 at 2020-01-06 19:58:34 -0500
+Started POST "/__better_errors/b7b662f0bf0ae74d/variables" for ::1 at 2020-01-06 19:58:35 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 19:58:36 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 2784)
+
+
+
+ActionView::MissingTemplate - Missing template users/1/bookshelves with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/m/Desktop/CodeJawns/Rails/GoodReads/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actiontext-6.0.2.1/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionmailbox-6.0.2.1/app/views"
+:
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/c9eea59a84783c08/variables" for ::1 at 2020-01-06 19:58:36 -0500
+  [1m[36mBookshelf Load (1.2ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:02:11 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1948)
+
+
+
+ActionView::MissingTemplate - Missing template users/1/bookshelves with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/m/Desktop/CodeJawns/Rails/GoodReads/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actiontext-6.0.2.1/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionmailbox-6.0.2.1/app/views"
+:
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/2fa8711cc61d2a9c/variables" for ::1 at 2020-01-06 20:02:11 -0500
+  [1m[36mBookshelf Load (0.6ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.1ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:02:31 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms | Allocations: 5209)
+
+
+
+ActionView::MissingTemplate - Missing template users/1/bookshelves with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/m/Desktop/CodeJawns/Rails/GoodReads/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actiontext-6.0.2.1/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionmailbox-6.0.2.1/app/views"
+:
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/2f293d110d721fec/variables" for ::1 at 2020-01-06 20:02:31 -0500
+  [1m[36mBookshelf Load (2.2ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:03:15 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1473)
+
+
+
+ActionView::MissingTemplate - Missing template users/1/bookshelves with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/m/Desktop/CodeJawns/Rails/GoodReads/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actiontext-6.0.2.1/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionmailbox-6.0.2.1/app/views"
+:
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/fe9a6ad1bbd82eb5/variables" for ::1 at 2020-01-06 20:03:15 -0500
+  [1m[36mBookshelf Load (0.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:03:52 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2790)
+
+
+
+ActionView::MissingTemplate - Missing template users/1/bookshelves with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/m/Desktop/CodeJawns/Rails/GoodReads/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actiontext-6.0.2.1/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionmailbox-6.0.2.1/app/views"
+:
+  app/controllers/bookshelves_controller.rb:8:in `index'
+
+Started POST "/__better_errors/8b0dc4bb6a2533aa/variables" for ::1 at 2020-01-06 20:03:52 -0500
+  [1m[36mBookshelf Load (0.6ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:04:56 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2475)
+
+
+
+ActionView::MissingTemplate - Missing template users/1/bookshelves with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/m/Desktop/CodeJawns/Rails/GoodReads/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actiontext-6.0.2.1/app/views"
+  * "/Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionmailbox-6.0.2.1/app/views"
+:
+  app/controllers/bookshelves_controller.rb:8:in `index'
+
+Started POST "/__better_errors/9f4d58813d2aa485/variables" for ::1 at 2020-01-06 20:04:56 -0500
+  [1m[36mBookshelf Load (1.6ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Bookshelf Load (0.0ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:07:27 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+Completed 404 Not Found in 23ms (ActiveRecord: 9.3ms | Allocations: 4209)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User without an ID:
+  app/controllers/bookshelves_controller.rb:7:in `index'
+
+Started POST "/__better_errors/488652a3bdf8bc8b/variables" for ::1 at 2020-01-06 20:07:28 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:07:30 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+Completed 404 Not Found in 3ms (ActiveRecord: 0.0ms | Allocations: 1143)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User without an ID:
+  app/controllers/bookshelves_controller.rb:7:in `index'
+
+Started POST "/__better_errors/387584bf7f69d74a/variables" for ::1 at 2020-01-06 20:07:30 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:07:56 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 336.7ms | Allocations: 94388)
+Completed 500 Internal Server Error in 384ms (ActiveRecord: 15.8ms | Allocations: 107135)
+
+
+
+NoMethodError - undefined method `bookshelf_path' for #<#<Class:0x00007fb5bd671900>:0x00007fb5be983138>:
+  app/views/bookshelves/index.html.erb:17
+  app/views/bookshelves/index.html.erb:14
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/afac56c7e16b04c0/variables" for ::1 at 2020-01-06 20:07:57 -0500
+Started GET "/rails/info/routes" for ::1 at 2020-01-06 20:09:23 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [35 times] (Duration: 22.5ms | Allocations: 5243)
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 3.3ms | Allocations: 1189)
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 31.8ms | Allocations: 9621)
+Completed 200 OK in 38ms (Views: 34.6ms | ActiveRecord: 0.0ms | Allocations: 11053)
+
+
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:11:03 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (6.2ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 426.1ms | Allocations: 109789)
+Completed 500 Internal Server Error in 436ms (ActiveRecord: 6.7ms | Allocations: 114404)
+
+
+
+NoMethodError - undefined method `bookshelf_path' for #<#<Class:0x00007fb5baa3c718>:0x00007fb5baa066e0>:
+  app/views/bookshelves/index.html.erb:17
+  app/views/bookshelves/index.html.erb:14
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/b094a5cd2c106f0e/variables" for ::1 at 2020-01-06 20:11:04 -0500
+Started POST "/__better_errors/b094a5cd2c106f0e/variables" for ::1 at 2020-01-06 20:11:33 -0500
+Started POST "/__better_errors/b094a5cd2c106f0e/variables" for ::1 at 2020-01-06 20:11:34 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:11:59 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.7ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 413.6ms | Allocations: 109027)
+Completed 500 Internal Server Error in 426ms (ActiveRecord: 2.0ms | Allocations: 110814)
+
+
+
+NoMethodError - undefined method `bookshelf_path' for #<#<Class:0x00007fb5bd3f3890>:0x00007fb5bd3f1608>:
+  app/views/bookshelves/index.html.erb:17
+  app/views/bookshelves/index.html.erb:14
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/3721c6eb31111d8b/variables" for ::1 at 2020-01-06 20:12:00 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:12:34 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.5ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3446)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 3.7ms | Allocations: 5231)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bookshelves", :user_id=>#<Bookshelf id: 2, name: "Have read", user_id: 2, created_at: "2020-01-07 00:37:13", updated_at: "2020-01-07 00:37:13">}, missing required keys: [:id]:
+  app/views/bookshelves/index.html.erb:17
+  app/views/bookshelves/index.html.erb:14
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/50dfd32429149fea/variables" for ::1 at 2020-01-06 20:12:34 -0500
+Started GET "/rails/info/routes" for ::1 at 2020-01-06 20:12:55 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [35 times] (Duration: 12.4ms | Allocations: 5212)
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 2.4ms | Allocations: 713)
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 19.2ms | Allocations: 9092)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 10417)
+
+
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:14:25 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.5ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 3390)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.0ms | Allocations: 5180)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bookshelves", :user_id=>2}, missing required keys: [:id]:
+  app/views/bookshelves/index.html.erb:17
+  app/views/bookshelves/index.html.erb:14
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/917ca1ca52518d3b/variables" for ::1 at 2020-01-06 20:14:25 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:15:27 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.5ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3475)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.8ms | Allocations: 5262)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"edit", :controller=>"bookshelves", :user_id=>#<Bookshelf id: 2, name: "Have read", user_id: 2, created_at: "2020-01-07 00:37:13", updated_at: "2020-01-07 00:37:13">}, missing required keys: [:id]:
+  app/views/bookshelves/index.html.erb:18
+  app/views/bookshelves/index.html.erb:14
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/0f584722134f48a0/variables" for ::1 at 2020-01-06 20:15:27 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:15:57 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.5ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 335.5ms | Allocations: 91315)
+Completed 500 Internal Server Error in 348ms (ActiveRecord: 0.8ms | Allocations: 93105)
+
+
+
+NoMethodError - undefined method `bookshelf_path' for #<#<Class:0x00007fb5bd647d08>:0x00007fb5bd645da0>:
+  app/views/bookshelves/index.html.erb:19
+  app/views/bookshelves/index.html.erb:14
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/a98cda821998b0b7/variables" for ::1 at 2020-01-06 20:15:58 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:16:19 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.5ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 3449)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.6ms | Allocations: 5236)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bookshelves", :user_id=>"2"}, missing required keys: [:id]:
+  app/views/bookshelves/index.html.erb:19
+  app/views/bookshelves/index.html.erb:14
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/167e92c7562ec211/variables" for ::1 at 2020-01-06 20:16:19 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:16:28 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (1.2ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 672.9ms | Allocations: 178465)
+Completed 500 Internal Server Error in 682ms (ActiveRecord: 1.8ms | Allocations: 180254)
+
+
+
+NameError - undefined local variable or method `new_bookshelf_path' for #<#<Class:0x00007fb5b9dd6190>:0x00007fb5bd0c2310>
+Did you mean?  new_user_bookshelf_path
+               user_bookshelf_path:
+  app/views/bookshelves/index.html.erb:27
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/a5b3aefeb2f17a7d/variables" for ::1 at 2020-01-06 20:16:29 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:16:48 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.7ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 794.7ms | Allocations: 214057)
+Completed 500 Internal Server Error in 809ms (ActiveRecord: 2.2ms | Allocations: 215846)
+
+
+
+NameError - undefined local variable or method `bookshelf' for #<#<Class:0x00007fb5bd1fb718>:0x00007fb5bd1f8ab8>
+Did you mean?  @bookshelves:
+  app/views/bookshelves/index.html.erb:27
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/b523e731eb27f0cd/variables" for ::1 at 2020-01-06 20:16:49 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:17:06 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (2.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 449.5ms | Allocations: 109878)
+Completed 500 Internal Server Error in 458ms (ActiveRecord: 2.7ms | Allocations: 111669)
+
+
+
+NoMethodError - undefined method `new_bookshelf_path' for #<#<Class:0x00007fb5bd4d8b20>:0x00007fb5bd4d22e8>
+Did you mean?  new_user_bookshelf_path
+               user_bookshelf_path:
+  app/views/bookshelves/index.html.erb:27
+  app/controllers/bookshelves_controller.rb:9:in `index'
+
+Started POST "/__better_errors/4c08c5d2a7b6e1b1/variables" for ::1 at 2020-01-06 20:17:07 -0500
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:17:23 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (1.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1421)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 84ms (Views: 75.9ms | ActiveRecord: 2.1ms | Allocations: 11540)
+
+
+Started GET "/users/2" for ::1 at 2020-01-06 20:17:44 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.9ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1193)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 38.4ms | ActiveRecord: 1.4ms | Allocations: 8146)
+
+
+Started GET "/users/2/bookshelves/3" for ::1 at 2020-01-06 20:17:51 -0500
+Processing by BookshelvesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"3"}
+  [1m[36mBookshelf Load (1.1ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:69:in `set_bookshelf'
+  Rendering bookshelves/show.html.erb within layouts/application
+  Rendered bookshelves/show.html.erb within layouts/application (Duration: 390.7ms | Allocations: 109408)
+Completed 500 Internal Server Error in 399ms (ActiveRecord: 1.1ms | Allocations: 110691)
+
+
+
+NoMethodError - undefined method `edit_bookshelf_path' for #<#<Class:0x00007fb5bd6b2c48>:0x00007fb5bd4e8ef8>
+Did you mean?  edit_user_bookshelf_path:
+  app/views/bookshelves/show.html.erb:8
+
+Started POST "/__better_errors/d3b41b2f27db4fd7/variables" for ::1 at 2020-01-06 20:17:52 -0500
+Started GET "/users/2/bookshelves/3" for ::1 at 2020-01-06 20:18:25 -0500
+Processing by BookshelvesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"3"}
+  [1m[36mBookshelf Load (17.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:69:in `set_bookshelf'
+  Rendering bookshelves/show.html.erb within layouts/application
+  Rendered bookshelves/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 316)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 32.3ms | ActiveRecord: 17.3ms | Allocations: 7610)
+
+
+Started GET "/users/2" for ::1 at 2020-01-06 20:18:29 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.4ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1181)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 22.0ms | ActiveRecord: 0.8ms | Allocations: 8119)
+
+
+Started POST "/__better_errors/bf726c47356e1571/variables" for ::1 at 2020-01-06 20:18:55 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:18:59 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 323.8ms | Allocations: 107433)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 327.2ms | Allocations: 107777)
+Completed 500 Internal Server Error in 333ms (ActiveRecord: 0.0ms | Allocations: 108415)
+
+
+
+NoMethodError - undefined method `bookshelves_path' for #<#<Class:0x00007fb5ba9f5728>:0x00007fb5b9d94f10>:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/23b09fd7ce03dc27/variables" for ::1 at 2020-01-06 20:18:59 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:20:29 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 368.9ms | Allocations: 107968)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 371.7ms | Allocations: 108314)
+Completed 500 Internal Server Error in 380ms (ActiveRecord: 0.0ms | Allocations: 109552)
+
+
+
+NoMethodError - undefined method `bookshelves_path' for #<#<Class:0x00007fb5baa4c398>:0x00007fb5b9fc4d80>:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/2caaaca9ee02079a/variables" for ::1 at 2020-01-06 20:20:30 -0500
+Started POST "/__better_errors/bf726c47356e1571/variables" for ::1 at 2020-01-06 20:20:32 -0500
+Started POST "/__better_errors/bf726c47356e1571/variables" for ::1 at 2020-01-06 20:20:37 -0500
+Started GET "/users/1/bookshelves" for ::1 at 2020-01-06 20:20:38 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1154)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 35.2ms | ActiveRecord: 0.6ms | Allocations: 7809)
+
+
+Started GET "/users/1/bookshelves/new" for ::1 at 2020-01-06 20:20:40 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 320.6ms | Allocations: 107533)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 321.2ms | Allocations: 107612)
+Completed 500 Internal Server Error in 324ms (ActiveRecord: 0.0ms | Allocations: 108108)
+
+
+
+NoMethodError - undefined method `bookshelves_path' for #<#<Class:0x00007fb5baa4c398>:0x00007fb5be98e3a8>:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/d8482a784dd7636b/variables" for ::1 at 2020-01-06 20:20:40 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:20:46 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 418.0ms | Allocations: 107674)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 419.3ms | Allocations: 107753)
+Completed 500 Internal Server Error in 425ms (ActiveRecord: 0.0ms | Allocations: 108248)
+
+
+
+NoMethodError - undefined method `bookshelves_path' for #<#<Class:0x00007fb5baa4c398>:0x00007fb5be855388>:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/f443ba08d092b935/variables" for ::1 at 2020-01-06 20:20:47 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:21:24 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 761.5ms | Allocations: 210714)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 763.2ms | Allocations: 211060)
+Completed 500 Internal Server Error in 771ms (ActiveRecord: 0.0ms | Allocations: 212303)
+
+
+
+NameError - undefined local variable or method `user_bookshelf' for #<#<Class:0x00007fb5bd1f8450>:0x00007fb5b90faca0>
+Did you mean?  user_bookshelf_url:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/30144240bb6c5b8c/variables" for ::1 at 2020-01-06 20:21:26 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:22:22 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:19:in `new'
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 2.7ms | Allocations: 2994)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 3340)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 19.2ms | Allocations: 14743)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bookshelves", :user_id=>"2"}, missing required keys: [:id]:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/c2dc7fd8ac04f15f/variables" for ::1 at 2020-01-06 20:22:22 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:23:07 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:19:in `new'
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 5.7ms | Allocations: 3044)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 3390)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.9ms | Allocations: 5195)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bookshelves", :user_id=>2}, missing required keys: [:id]:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/d79ac62d70875a5f/variables" for ::1 at 2020-01-06 20:23:07 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:24:38 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:19:in `new'
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 3.1ms | Allocations: 3046)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 3394)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.4ms | Allocations: 5199)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bookshelves", :user_id=>2}, missing required keys: [:id]:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/8f70da9bbea89457/variables" for ::1 at 2020-01-06 20:24:38 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:24:40 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:19:in `new'
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 1.2ms | Allocations: 2725)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 2806)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms | Allocations: 3864)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bookshelves", :user_id=>2}, missing required keys: [:id]:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/dba4bdf279e73c42/variables" for ::1 at 2020-01-06 20:24:40 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:25:23 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:19:in `new'
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 4.6ms | Allocations: 3046)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3394)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.1ms | Allocations: 5199)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bookshelves", :user_id=>2}, missing required keys: [:id]:
+  app/views/bookshelves/_form.html.erb:1
+  app/views/bookshelves/new.html.erb:3
+
+Started POST "/__better_errors/f66407f04327a064/variables" for ::1 at 2020-01-06 20:25:23 -0500
+Started GET "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:25:56 -0500
+Processing by BookshelvesController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:19:in `new'
+  Rendering bookshelves/new.html.erb within layouts/application
+  Rendered bookshelves/_form.html.erb (Duration: 39.5ms | Allocations: 12308)
+  Rendered bookshelves/new.html.erb within layouts/application (Duration: 43.4ms | Allocations: 12702)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 85ms (Views: 78.0ms | ActiveRecord: 0.3ms | Allocations: 19933)
+
+
+Started POST "/users/2/bookshelves/new" for ::1 at 2020-01-06 20:26:05 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/users/2/bookshelves/new"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-06 20:26:11 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (4.6ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 3210)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 21.7ms | ActiveRecord: 4.8ms | Allocations: 10704)
+
+
