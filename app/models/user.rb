@@ -27,8 +27,8 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-    #has_many :reviews, dependent: destroy
-    #has_many :books
+    has_many :reviews, dependent: :destroy
+    has_many :books
     has_many :bookshelves, dependent: :destroy
     
 

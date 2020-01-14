@@ -1865,3 +1865,201 @@ Migrating to AddBooksToBookshelf (20200114003541)
   [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(927829647523035705)[0m
   [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/2/bookshelves/2" for ::1 at 2020-01-13 19:39:58 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BookshelvesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mBookshelf Load (0.7ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:70:in `set_bookshelf'
+  Rendering bookshelves/show.html.erb within layouts/application
+  Rendered bookshelves/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 160)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 93ms (Views: 81.4ms | ActiveRecord: 0.9ms | Allocations: 29757)
+
+
+Started GET "/users/2/bookshelves/2" for ::1 at 2020-01-13 19:39:58 -0500
+Processing by BookshelvesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mBookshelf Load (0.7ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:70:in `set_bookshelf'
+  Rendering bookshelves/show.html.erb within layouts/application
+  Rendered bookshelves/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 150)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 0.7ms | Allocations: 6674)
+
+
+Started GET "/users/2/bookshelves" for ::1 at 2020-01-13 19:39:59 -0500
+Processing by BookshelvesController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:7:in `index'
+  Rendering bookshelves/index.html.erb within layouts/application
+  [1m[36mBookshelf Load (0.3ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/bookshelves/index.html.erb:14
+  Rendered bookshelves/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2949)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 16.0ms | ActiveRecord: 1.8ms | Allocations: 15573)
+
+
+Started GET "/users" for ::1 at 2020-01-13 19:40:04 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1021)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 13.4ms | ActiveRecord: 7.5ms | Allocations: 7180)
+
+
+Started GET "/" for ::1 at 2020-01-13 19:40:17 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.7ms | Allocations: 207)
+Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 1018)
+
+
+Started GET "/index" for ::1 at 2020-01-13 19:40:26 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/index"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.8) lib/rack/method_override.rb:22:in `call'
+rack (2.0.8) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.8) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-01-13 19:40:33 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1242)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.4ms | Allocations: 8132)
+
+
+Started GET "/users/2/bookshelves/2" for ::1 at 2020-01-13 19:47:27 -0500
+Processing by BookshelvesController#show as HTML
+  Parameters: {"user_id"=>"2", "id"=>"2"}
+  [1m[36mBookshelf Load (0.7ms)[0m  [1m[34mSELECT "bookshelves".* FROM "bookshelves" WHERE "bookshelves"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bookshelves_controller.rb:70:in `set_bookshelf'
+  Rendering bookshelves/show.html.erb within layouts/application
+  Rendered bookshelves/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 318)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 11.3ms | ActiveRecord: 0.9ms | Allocations: 12218)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(927829647523035705)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddReviewToBooks (20200114004952)
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(927829647523035705)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(927829647523035705)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddReviewToBooks (20200114004952)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "books" ADD "reviews" text[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200114004952"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(927829647523035705)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for ::1 at 2020-01-13 20:10:16 -0500
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 5191)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 30.8ms | ActiveRecord: 1.2ms | Allocations: 14681)
+
+
+Started GET "/" for ::1 at 2020-01-13 20:10:17 -0500
+
+NameError - uninitialized constant StaticController:
+
+Started POST "/__better_errors/e486d8dfbd8b9247/variables" for ::1 at 2020-01-13 20:10:17 -0500
+Started GET "/" for ::1 at 2020-01-13 20:11:12 -0500
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 97)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 86ms (Views: 82.7ms | ActiveRecord: 0.0ms | Allocations: 27967)
+
+
+Started GET "/users/new" for ::1 at 2020-01-13 20:11:46 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "t7mn6JuT-kXbPdnvRm9AKA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72:in `generate_unique_session_token'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 4.0ms | Allocations: 1432)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1800)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 17.7ms | ActiveRecord: 11.9ms | Allocations: 15591)
+
+
+Started GET "/users/new" for ::1 at 2020-01-13 20:11:46 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "X3G7zU4YU3xuQezuyYeaBw"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72:in `generate_unique_session_token'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.7ms | Allocations: 820)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 918)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 0.4ms | Allocations: 7597)
+
+
+Started GET "/users" for ::1 at 2020-01-13 20:11:48 -0500
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 977)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 1.9ms | Allocations: 6987)
+
+
+Started GET "/users/new" for ::1 at 2020-01-13 20:13:15 -0500
+Processing by UsersController#new as HTML
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "MVLXufGFqgLMr__NinJwlA"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:72:in `generate_unique_session_token'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.9ms | Allocations: 820)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 918)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 1.9ms | Allocations: 7596)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-01-13 20:16:14 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [44 times] (Duration: 17.2ms | Allocations: 6466)
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 2.0ms | Allocations: 713)
+  Rendered /Users/m/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-6.0.2.1/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 24.8ms | Allocations: 11054)
+Completed 200 OK in 34ms (Views: 31.0ms | ActiveRecord: 0.0ms | Allocations: 12462)
+
+

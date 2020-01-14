@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  
+  root 'static#index'
+  
   resources :users do
-      resources :bookshelves #do?
-        #resources books?
+      resources :bookshelves do
+        resources :books
+      end
         #each book needs to be in "All"
 
   end
