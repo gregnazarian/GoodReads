@@ -2,10 +2,15 @@ class User < ApplicationRecord
 
     
     after_create do 
-        shelves=["Have read", "Currently reading", "Want to read"]
+        shelves=["All", "Have read", "Currently reading", "Want to read"]
         shelves.each do |shelf|
             Bookshelf.create(name: shelf, user_id: self.id)
         end
+#  each book needs to be added to "All"
+#  each book needs a status i.e. "Have read, currently reading, want to read"
+#  for each book, you set the status. but then also can add it to a bookshelf
+# 
+#         
     end
 
     validates :email, :password_digest, :session_token, 
@@ -18,11 +23,12 @@ class User < ApplicationRecord
         length: {minimum: 6, allow_nil: true}
 
     attr_reader :password
-    
+
 
     after_initialize :ensure_session_token
 
-    #has_many :reviews, dependent_destroy: true
+    #has_many :reviews, dependent: destroy
+    #has_many :books
     has_many :bookshelves, dependent: :destroy
     
 
